@@ -39,8 +39,7 @@ int main(int argc, char **argv)
 			run_operations(&stack, toks, i + 1, buffer, args);
 		}
 	}
+	fclose(fp);
 	free(buffer);
-	my_free(args);
-	free_stack(stack);
 	return (0);
 }

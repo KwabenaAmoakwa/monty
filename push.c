@@ -48,7 +48,6 @@ void pall(stack_t **head, unsigned int line_number)
 	(void)line_number;
 
 	temp = *head;
-
 	while (temp)
 	{
 		printf("%d\n", temp->n);
