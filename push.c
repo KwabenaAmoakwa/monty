@@ -47,12 +47,7 @@ void pall(stack_t **head, unsigned int line_number)
 	stack_t *temp;
 	(void)line_number;
 
-	if (*head == NULL)
-	{
-		printf("Stack underflow\n");
-	}
 	temp = *head;
-
 	while (temp)
 	{
 		printf("%d\n", temp->n);
