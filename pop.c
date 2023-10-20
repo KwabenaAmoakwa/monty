@@ -15,7 +15,6 @@ void pop(stack_t **head, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	temp = *head;
-
-	*head = (*head)->next;
+	*head = temp->next;
 	free(temp);
 }

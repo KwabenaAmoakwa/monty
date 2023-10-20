@@ -58,6 +58,7 @@ void _div(stack_t **head, unsigned int line_number)
 void mul(stack_t **head, unsigned int line_number)
 {
 	stack_t *temp;
+	int len = 0, prd;
 
 	if (*head == NULL || (*head)->next == NULL)
 	{
@@ -65,8 +66,8 @@ void mul(stack_t **head, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	temp = *head;
-	temp->next->n = temp->n * temp->next->n;
-
+	prd = temp->n * temp->next->n;
+	temp->next->n = prd;
 	*head = temp->next;
 	free(temp);
 }
