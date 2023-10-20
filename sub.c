@@ -12,7 +12,7 @@ void sub(stack_t **head, unsigned int line_number)
 
 	if (*head == NULL || (*head)->next == NULL)
 	{
-		fprintf(stderr,"L%d: can't sub, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	temp = *head;
@@ -34,16 +34,16 @@ void _div(stack_t **head, unsigned int line_number)
 
 	if (*head == NULL || (*head)->next == NULL)
 	{
-		fprintf(stderr,"L%d: can't div, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	temp = *head;
 	if (temp->n == 0)
 	{
-		fprintf(stderr,"L%d: division by zero\n", line_number);
+		fprintf(stderr, "L%d: division by zero\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-  
+
 	temp->next->n = temp->next->n / temp->n;
 	*head = (*head)->next;
 	free(temp);
@@ -61,7 +61,7 @@ void mul(stack_t **head, unsigned int line_number)
 
 	if (*head == NULL || (*head)->next == NULL)
 	{
-		fprintf(stderr,"L%d: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	temp = *head;
@@ -83,13 +83,13 @@ void mod(stack_t **head, unsigned int line_number)
 
 	if (*head == NULL || (*head)->next == NULL)
 	{
-		fprintf(stderr,"L%d: can't mod, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	temp = *head;
 	if (temp->n == 0)
 	{
-		fprintf(stderr,"L%d: division by zero\n", line_number);
+		fprintf(stderr, "L%d: division by zero\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
@@ -108,12 +108,12 @@ void pchar(stack_t **head, unsigned int line_number)
 {
 	if (*head == NULL)
 	{
-		fprintf(stderr,"L%d: can't pchar, stack empty", line_number);
+		fprintf(stderr, "L%d: can't pchar, stack empty", line_number);
 		exit(EXIT_FAILURE);
 	}
 	if ((*head)->n > 127 || (*head)->n < 0)
 	{
-		fprintf(stderr,"L%d: can't pchar, value out of range\n", line_number);
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	printf("%c\n", (*head)->n);

@@ -6,8 +6,6 @@ char *gv;
 * @stack: head linked list
 * @line: line number of instruction
 * @toks: tokenized instruction
-* @b: buffer
-* @a:args
 * Return: On success 1.
 * On error, exit.
 */
