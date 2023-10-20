@@ -44,6 +44,11 @@ void run_operations(stack_t **stack, char **toks, int line)
 			opcd[i].f(stack, line);
 			return;
 		}
+		else
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line);
+			exit(EXIT_FAILURE);
+		}
 	}
 	fprintf(stderr, "L%d: unknown instructions %s\n", line, toks[0]);
 	exit(EXIT_FAILURE);
