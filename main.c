@@ -27,6 +27,8 @@ int main(int argc, char **argv)
 	}
 	while ((num_rd = getline(&buffer, &buff_len, fp)) != -1)
 	{
+		if (buffer && buffer[0] == '#')
+			continue;
 		toks = tokenize(buffer);
 		if (toks == NULL)
 		{
