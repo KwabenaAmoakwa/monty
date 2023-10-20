@@ -15,6 +15,7 @@ void run_operations(stack_t **stack, char **toks, int line)
 	instruction_t opcd[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{"add", add},
 		{"sub", sub},
 		{"pop", pop},
