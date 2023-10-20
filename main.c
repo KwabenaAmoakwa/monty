@@ -27,6 +27,8 @@ int main(int argc, char **argv)
 	}
 	while ((num_rd = getline(&buffer, &buff_len, fp)) != -1)
 	{
+		if (buffer && buffer[0] == '#')
+			continue;
 		toks = tokenize(buffer);
 		if (toks == NULL)
 		{
@@ -35,8 +37,6 @@ int main(int argc, char **argv)
 			free_stack(stack);
 			exit(EXIT_FAILURE);
 		}
-		if (toks && toks[0] == "#")
-			continue;
 		run_operations(&stack, toks, line);
 		line++;
 		free(toks);
