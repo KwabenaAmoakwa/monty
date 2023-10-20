@@ -26,7 +26,8 @@ void run_operations(stack_t **stack, char **toks, int line)
 		{"pchar", pchar},
 		{"mod", mod},
 		{"pstr", pstr},
-		{"nop", nop}	
+		{"nop", nop},
+		{"rotl", rotl}
 	};
 	num_opcodes = sizeof(opcd) / sizeof(opcd[0]);
 	if (toks[0] == NULL)
