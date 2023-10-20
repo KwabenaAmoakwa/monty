@@ -32,7 +32,7 @@ void run_operations(stack_t **stack, char **toks, int line)
 	num_opcodes = sizeof(opcd) / sizeof(opcd[0]);
 	if (toks[0] == NULL)
 	{
-		fprintf(stderr, "L%d: unknown instruction %s\n", line, toks[0]);
+		fprintf(stderr, "L%d: usage: push integer\n", line);
 		exit(EXIT_FAILURE);
 	}
 	if (toks[1] != NULL)
