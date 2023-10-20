@@ -17,6 +17,7 @@ void run_operations(stack_t **stack, char **toks, int line)
 		{"pall", pall},
 		{"pint", pint},
 		{"add", add},
+		{"swap", swap},
 		{"sub", sub},
 		{"pop", pop},
 		{"mul", mul},
