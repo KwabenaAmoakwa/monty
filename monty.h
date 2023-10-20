@@ -57,5 +57,6 @@ void mod(stack_t **head, unsigned int line_number);
 void pstr(stack_t **head, unsigned int line_number);
 void pint(stack_t **head, unsigned int line_number);
 void swap(stack_t **head, unsigned int line_number);
+void nop(stack_t **head, unsigned int line_number);
 
 #endif
