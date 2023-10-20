@@ -43,7 +43,7 @@ char **split_input(char *s);
 char **tokenize(char *s);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void my_free(char **mem);
-void run_operations(stack_t **stack, char **toks, int line, char *b, char **a);
+void run_operations(stack_t **stack, char **toks, int line);
 void free_stack(stack_t *head);
 void push(stack_t **head, unsigned int line);
 void pall(stack_t **head, unsigned int line_number);

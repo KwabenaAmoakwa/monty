@@ -11,7 +11,7 @@ char *gv;
 * Return: On success 1.
 * On error, exit.
 */
-void run_operations(stack_t **stack, char **toks, int line, char *b, char **a)
+void run_operations(stack_t **stack, char **toks, int line)
 {
 	int i, num_opcodes;
 	instruction_t opcd[] = {
@@ -28,14 +28,6 @@ void run_operations(stack_t **stack, char **toks, int line, char *b, char **a)
 		{"pstr", pstr}
 	};
 	num_opcodes = sizeof(opcd) / sizeof(opcd[0]);
-	if (toks == NULL)
-	{
-		fprintf(stderr, "L%d: unknown instruction %s\n", i + 1, toks[0]);
-		free(b);
-		my_free(a);
-		free_stack(stack);
-		exit(EXIT_FAILURE);
-	}
 	if (toks[0] == NULL)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line, toks[0]);

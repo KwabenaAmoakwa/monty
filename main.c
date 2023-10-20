@@ -7,8 +7,8 @@
 */
 int main(int argc, char **argv)
 {
-	char *buffer = NULL, **args = NULL, **toks = NULL;
-	int i;
+	char *buffer = NULL, **toks = NULL;
+	int line = 1;
 	stack_t *stack = NULL;
 	size_t buff_len = 0;
 	FILE *fp;
@@ -27,19 +27,20 @@ int main(int argc, char **argv)
 	}
 	while ((num_rd = getline(&buffer, &buff_len, fp)) != -1)
 	{
-		args = split_input(buffer);
-		if (args == NULL)
+		toks = tokenize(buffer);
+		if (toks == NULL)
 		{
-			free(args);
+			fprintf(stderr, "L%d: unknown instruction %s\n", line, toks[0]);
+			free(buffer);
+			free_stack(stack);
 			exit(EXIT_FAILURE);
 		}
-		for (i = 0; args[i] != NULL; i++)
-		{
-			toks = tokenize(args[i]);
-			run_operations(&stack, toks, i + 1, buffer, args);
-		}
+		run_operations(&stack, toks, line);
+		line++;
+		free(toks);
 	}
 	fclose(fp);
 	free(buffer);
+	free_stack(stack);
 	return (0);
 }
