@@ -7,7 +7,6 @@ char *gv;
 * @line: line number of instruction
 * @toks: tokenized instruction
 * Return: On success 1.
-* On error, exit.
 */
 void run_operations(stack_t **stack, char **toks, int line)
 {
@@ -26,8 +25,7 @@ void run_operations(stack_t **stack, char **toks, int line)
 		{"pchar", pchar},
 		{"mod", mod},
 		{"pstr", pstr},
-		{"nop", nop},
-		{"rotl", rotl}
+		{"nop", nop}, {"rotl", rotl}
 	};
 	num_opcodes = sizeof(opcd) / sizeof(opcd[0]);
 	if (toks[0] == NULL)
@@ -37,13 +35,18 @@ void run_operations(stack_t **stack, char **toks, int line)
 	}
 	if (toks[1] != NULL)
 		gv = toks[1];
+	if (strcmp(toks[0], opcd[0].opcode) == 0 && toks[1] == NULL)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line);
+		exit(EXIT_FAILURE);
+	}
 	for (i = 0; i < num_opcodes; i++)
 	{
 		if (strcmp(toks[0], opcd[i].opcode) == 0)
 		{
 			opcd[i].f(stack, line);
 			return;
-		}		
+		}
 	}
 	fprintf(stderr, "L%d: usage: push integer\n", line);
 	exit(EXIT_FAILURE);
