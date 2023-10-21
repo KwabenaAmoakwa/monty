@@ -109,7 +109,7 @@ void pchar(stack_t **head, unsigned int line_number)
 {
 	if (*head == NULL)
 	{
-		fprintf(stderr, "L%d: can't pchar, stack empty", line_number);
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	if ((*head)->n > 127 || (*head)->n < 0)
