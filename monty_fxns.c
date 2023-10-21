@@ -48,7 +48,7 @@ void run_operations(stack_t **stack, char **toks, int line)
 			return;
 		}
 	}
-	fprintf(stderr, "L%d: usage: push integer\n", line);
+	fprintf(stderr, "L%d: unknown instruction %s\n", line, toks[0]);
 	exit(EXIT_FAILURE);
 }
 
